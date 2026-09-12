@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "titan-ai-call-agent"
+version = "2.0.0"
+description = "Production-ready, modular AI Call Agent (Gemini 2.5 Flash + Sarvam STT/TTS) built on LiveKit Agents"
+requires-python = ">=3.12, <3.15"
+
+dependencies = [
+    # Real-time voice engine (interruptions, turn-taking, telephony/SIP)
+    "livekit-agents>=1.6.1",
+    # LLM: Google Gemini 2.5 Flash
+    "livekit-plugins-google>=1.6.2",
+    # Direct Gemini SDK, used for schema-constrained structured call summaries
+    "google-genai>=1.0",
+    # Speech-to-text and text-to-speech: Sarvam AI (Indian languages + English)
+    "livekit-plugins-sarvam>=1.6.1",
+    # Background noise cancellation (preserved from the original pipeline)
+    "livekit-plugins-ai-coustics~=0.2",
+    # Centralized, typed configuration from environment / .env
+    "pydantic-settings>=2.4",
+    "python-dotenv",
+    # Excel (.xlsx) reporting export for confirmed bookings (staff-facing report)
+    "openpyxl>=3.1",
+    # IANA timezone database for zoneinfo (Windows / slim containers lack a system one)
+    "tzdata",
+]
+
+[project.optional-dependencies]
+# Optional control-plane HTTP API (health checks, call-summary retrieval, future CRM hooks).
+# Not required to run the voice agent itself.
+api = [
+    "fastapi>=0.110",
+    "uvicorn>=0.30",
+    # Dashboard auth: JWT session tokens + argon2 password hashing.
+    "pyjwt>=2.8",
+    "argon2-cffi>=23",
+]
+# Optional Google Calendar booking backend (CALENDAR_BACKEND=google).
+# Not required to run the voice agent (default backend is in-memory).
+calendar = [
+    "google-api-python-client>=2.0",
+    "google-auth>=2.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "ruff",
+]
+
+[tool.uv]
+# yarl 1.24.1 was published with only a cp310 wheel and no sdist, so it can't
+# install on Python 3.11+. Remove this once upstream uploads the remaining wheels.
+constraint-dependencies = ["yarl<1.24"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "B", "A", "C4", "UP", "SIM", "RUF"]
+ignore = ["E501"]  # Line too long (handled by formatter)
+
+[tool.ruff.lint.per-file-ignores]
+# B008: `Depends(...)` in argument defaults is the canonical FastAPI pattern.
+"src/titan/api/**" = ["B008"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

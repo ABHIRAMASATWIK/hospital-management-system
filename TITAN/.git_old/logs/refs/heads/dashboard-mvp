@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 9bf4404101849112e9c41da4409438a1aad8d31e ABHIRAMASATWIK <vadrevu.abhiramasatwik@gmail.com> 1784139259 +0530	branch: Created from HEAD
+9bf4404101849112e9c41da4409438a1aad8d31e 44db5ac69bac498940f8fd8c5e1e87889b37f488 ABHIRAMASATWIK <vadrevu.abhiramasatwik@gmail.com> 1784139354 +0530	commit: Add multi-tenant dashboard backend: SQLite schema, JWT auth, /api/v1 routers
+44db5ac69bac498940f8fd8c5e1e87889b37f488 0de1b89efadd17cc4aa028a333589384fee5a0cc ABHIRAMASATWIK <vadrevu.abhiramasatwik@gmail.com> 1784170572 +0530	commit: Wire tenant BusinessContext into agent, assistant, and session
+0de1b89efadd17cc4aa028a333589384fee5a0cc 9e49c3db2bc60206e4941cd097fc0fc760ec4b2c ABHIRAMASATWIK <vadrevu.abhiramasatwik@gmail.com> 1784171363 +0530	commit: Thread per-business hours, timezone, and holidays into booking flow

@@ -1,0 +1,67 @@
+{
+  "departments": [
+    {
+      "name": "Cardiology",
+      "doctors": [
+        { "name": "Dr. Rajesh", "specialization": "Interventional Cardiology" },
+        { "name": "Dr. Anitha", "specialization": "Cardiac Electrophysiology" }
+      ]
+    },
+    {
+      "name": "Orthopedics",
+      "doctors": [
+        { "name": "Dr. Kiran", "specialization": "Joint Replacement" },
+        { "name": "Dr. Swathi", "specialization": "Sports Medicine" }
+      ]
+    },
+    {
+      "name": "Neurology",
+      "doctors": [
+        { "name": "Dr. Menon", "specialization": "Stroke & Epilepsy" },
+        { "name": "Dr. Fatima", "specialization": "Movement Disorders" }
+      ]
+    },
+    {
+      "name": "General Medicine",
+      "doctors": [
+        { "name": "Dr. Suresh", "specialization": "Internal Medicine" },
+        { "name": "Dr. Priya", "specialization": "Diabetology" }
+      ]
+    },
+    {
+      "name": "Pediatrics",
+      "doctors": [
+        { "name": "Dr. Lakshmi", "specialization": "Neonatology" },
+        { "name": "Dr. Arjun", "specialization": "Pediatric Pulmonology" }
+      ]
+    },
+    {
+      "name": "Dermatology",
+      "doctors": [
+        { "name": "Dr. Nisha", "specialization": "Cosmetic Dermatology" },
+        { "name": "Dr. Vikram", "specialization": "Pediatric Dermatology" }
+      ]
+    },
+    {
+      "name": "ENT",
+      "doctors": [
+        { "name": "Dr. Ravi", "specialization": "Otology" },
+        { "name": "Dr. Deepa", "specialization": "Rhinology" }
+      ]
+    },
+    {
+      "name": "Gynecology",
+      "doctors": [
+        { "name": "Dr. Meera", "specialization": "Obstetrics" },
+        { "name": "Dr. Kavya", "specialization": "Reproductive Medicine" }
+      ]
+    },
+    {
+      "name": "Ophthalmology",
+      "doctors": [
+        { "name": "Dr. Sanjay", "specialization": "Cataract & Refractive" },
+        { "name": "Dr. Reena", "specialization": "Retina" }
+      ]
+    }
+  ]
+}
